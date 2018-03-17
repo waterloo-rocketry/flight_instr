@@ -1,5 +1,27 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP +3.0V
+D power-flag symbol +3.0V
+K Power Flag Symbol
+$ENDCMP
+#
+$CMP +3.3V
+D power-flag symbol
+K Power Flag Symbol
+$ENDCMP
+#
+$CMP Arduino_Nano_v2.x
+D Arduino Nano v2.x
+K Arduino nano microcontroller module USB
+F https://www.arduino.cc/en/uploads/Main/ArduinoNanoManual23.pdf
+$ENDCMP
+#
+$CMP Arduino_Nano_v3.x
+D Arduino Nano v3.x
+K Arduino nano microcontroller module USB
+F http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf
+$ENDCMP
+#
 $CMP MCP6001
 D 1MHz, Low-Power Op Amp, SOT-23-5/SC-70-5
 K single opamp
