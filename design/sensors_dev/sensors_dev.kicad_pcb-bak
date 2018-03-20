@@ -2150,7 +2150,7 @@
   )
 
   (module Capacitors_SMD:C_0805_HandSoldering (layer F.Cu) (tedit 58AA84A8) (tstamp 5AB1372C)
-    (at 198.628 126.492)
+    (at 0 0)
     (descr "Capacitor SMD 0805, hand soldering")
     (tags "capacitor 0805")
     (path /5AAC5FD1/5AB1476F)
@@ -2186,7 +2186,7 @@
   )
 
   (module Capacitors_SMD:C_0805_HandSoldering (layer F.Cu) (tedit 58AA84A8) (tstamp 5AB13732)
-    (at 198.628 126.492)
+    (at 0 0)
     (descr "Capacitor SMD 0805, hand soldering")
     (tags "capacitor 0805")
     (path /5AAC5FD1/5AB13F25)
@@ -2222,7 +2222,7 @@
   )
 
   (module Capacitors_SMD:C_0805_HandSoldering (layer F.Cu) (tedit 58AA84A8) (tstamp 5AB13738)
-    (at 198.628 126.492)
+    (at 0 0)
     (descr "Capacitor SMD 0805, hand soldering")
     (tags "capacitor 0805")
     (path /5AAC5FD1/5AB14134)

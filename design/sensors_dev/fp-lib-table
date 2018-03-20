@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name LGA14L)(type Legacy)(uri /Users/alexm/dev/flight_instr/lib/LGA14L.mod)(options "")(descr ""))
+)

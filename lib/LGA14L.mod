@@ -1,0 +1,199 @@
+PCBNEW-LibModule-V1  
+# encoding utf-8
+Units mm
+$INDEX
+LGA14L
+$EndINDEX
+$MODULE LGA14L
+Po 0 0 0 15 00000000 00000000 ~~
+Li LGA14L
+Cd <b>Description:</b>  This is a datasheet dictated footprint for the LSM6DS3 in the LGA 14L package.
+Sc 00000000
+At SMD
+Op 0 0 0
+.SolderMask 0
+.SolderPaste 0
+T0 -0.501055 2.30483 0.789055 0.789055 0 0.05 N V 21 "LGA14L"
+T1 0 -2.30622 0.789533 0.789533 0 0.05 N V 21 "VAL**"
+DS -1.5 1.25 1.5 1.25 0 24
+DS 1.5 1.25 1.5 -1.25 0 24
+DS 1.5 -1.25 -1.5 -1.25 0 24
+DS -1.5 -1.25 -1.5 1.25 0 24
+DS -0.875 -1.525 -1.775 -1.525 0.25 21
+DS -1.775 -1.525 -1.775 -0.625 0.25 21
+DS -1.625 -1.375 1.625 -1.375 0.25 21
+DS 1.625 -1.375 1.625 1.375 0.25 21
+DS 1.625 1.375 -1.625 1.375 0.25 21
+DS -1.625 1.375 -1.625 -1.375 0.25 21
+DS -0.875 -1.525 -0.875 -1.5 0.25 21
+DS -0.875 -1.5 -1.75 -1.5 0.25 21
+DS -1.75 -1.5 -1.75 -0.625 0.25 21
+DS -1.75 -0.625 -1.775 -0.625 0.25 21
+DS -0.25 -1.15 -0.25 -0.42 0.01 24
+DS 0.25 -1.15 0.25 -0.42 0.01 24
+DS -0.25 0.42 -0.25 1.15 0.01 24
+DS 0.25 0.42 0.25 1.15 0.01 24
+DS -1.4 -0.5 -0.67 -0.5 0.01 24
+DS -1.4 0 -0.67 0 0.01 24
+DS -1.4 0.5 -0.67 0.5 0.01 24
+DS 0.67 -0.5 1.4 -0.5 0.01 24
+DS 0.67 0 1.4 0 0.01 24
+DS 0.67 0.5 1.4 0.5 0.01 24
+DP 0 0 0 0 4 0.381 24
+Dl -0.831157 -0.58
+Dl 0.83 -0.58
+Dl 0.83 0.580809
+Dl -0.831157 0.580809
+DP 0 0 0 0 4 0.381 24
+Dl -1.50539 -1.25
+Dl -0.74 -1.25
+Dl -0.74 -0.983517
+Dl -1.50539 -0.983517
+DP 0 0 0 0 4 0.381 24
+Dl 0.741674 -1.25
+Dl 1.5 -1.25
+Dl 1.5 -0.982216
+Dl 0.741674 -0.982216
+DP 0 0 0 0 4 0.381 24
+Dl 0.742005 0.98
+Dl 1.5 0.98
+Dl 1.5 1.25339
+Dl 0.742005 1.25339
+DP 0 0 0 0 4 0.381 24
+Dl -1.505 0.98
+Dl -0.74 0.98
+Dl -0.74 1.25416
+Dl -1.505 1.25416
+DP 0 0 0 0 4 0.381 24
+Dl -0.830162 -0.98
+Dl -0.74 -0.98
+Dl -0.74 -0.580113
+Dl -0.830162 -0.580113
+DP 0 0 0 0 4 0.381 24
+Dl 0.741395 -0.98
+Dl 0.83 -0.98
+Dl 0.83 -0.581094
+Dl 0.741395 -0.581094
+DP 0 0 0 0 4 0.381 24
+Dl 0.740878 0.58
+Dl 0.83 0.58
+Dl 0.83 0.981163
+Dl 0.740878 0.981163
+DP 0 0 0 0 4 0.381 24
+Dl -0.83195 0.58
+Dl -0.74 0.58
+Dl -0.74 0.982303
+Dl -0.83195 0.982303
+$PAD
+Sh "1" R 0.45 0.25 0 0 1800
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po -1.175 -0.75
+$EndPAD
+$PAD
+Sh "2" R 0.45 0.25 0 0 1800
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po -1.175 -0.25
+$EndPAD
+$PAD
+Sh "3" R 0.45 0.25 0 0 1800
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po -1.175 0.25
+$EndPAD
+$PAD
+Sh "4" R 0.45 0.25 0 0 1800
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po -1.175 0.75
+$EndPAD
+$PAD
+Sh "5" R 0.45 0.25 0 0 900
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po -0.5 0.925
+$EndPAD
+$PAD
+Sh "6" R 0.45 0.25 0 0 900
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po 0 0.925
+$EndPAD
+$PAD
+Sh "7" R 0.45 0.25 0 0 900
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po 0.5 0.925
+$EndPAD
+$PAD
+Sh "8" R 0.45 0.25 0 0 1800
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po 1.175 0.75
+$EndPAD
+$PAD
+Sh "9" R 0.45 0.25 0 0 1800
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po 1.175 0.25
+$EndPAD
+$PAD
+Sh "10" R 0.45 0.25 0 0 1800
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po 1.175 -0.25
+$EndPAD
+$PAD
+Sh "11" R 0.45 0.25 0 0 1800
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po 1.175 -0.75
+$EndPAD
+$PAD
+Sh "12" R 0.45 0.25 0 0 900
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po 0.5 -0.925
+$EndPAD
+$PAD
+Sh "13" R 0.45 0.25 0 0 900
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po 0 -0.925
+$EndPAD
+$PAD
+Sh "14" R 0.45 0.25 0 0 900
+At SMD N 00888000
+.SolderMask 0
+.SolderPaste 0
+Ne 0 ""
+Po -0.5 -0.925
+$EndPAD
+$EndMODULE LGA14L
