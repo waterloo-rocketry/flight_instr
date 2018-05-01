@@ -3,7 +3,7 @@
   (general
     (links 115)
     (no_connects 0)
-    (area 95.047999 113.716999 154.126001 153.272358)
+    (area 95.047999 113.716999 154.126001 150.443001)
     (thickness 1.6)
     (drawings 25)
     (tracks 445)
@@ -2066,7 +2066,7 @@
   (gr_text "G2\n" (at 151.13 118.237) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (gr_text GORGONZOLA (at 138.303 117.221) (layer F.SilkS)
+  (gr_text GORGONZOLA (at 139.319 117.221) (layer F.SilkS)
     (effects (font (size 1.2 1.2) (thickness 0.2)))
   )
 

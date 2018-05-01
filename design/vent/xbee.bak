@@ -1,0 +1,251 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:modules
+LIBS:flight_instr
+LIBS:vent-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L XBEE_SC1 U?
+U 1 1 5AE12982
+P 6850 3800
+F 0 "U?" H 6400 4000 60  0000 C CNN
+F 1 "XBEE_SC1" H 7200 2900 60  0000 C CNN
+F 2 "" H 6800 3800 60  0001 C CNN
+F 3 "" H 6800 3800 60  0001 C CNN
+	1    6850 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5AE1298B
+P 6000 4750
+F 0 "#PWR?" H 6000 4500 50  0001 C CNN
+F 1 "GND" H 6000 4600 50  0000 C CNN
+F 2 "" H 6000 4750 50  0001 C CNN
+F 3 "" H 6000 4750 50  0001 C CNN
+	1    6000 4750
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6150 4000
+NoConn ~ 6150 4100
+NoConn ~ 6150 4200
+NoConn ~ 6150 4300
+NoConn ~ 6150 4500
+NoConn ~ 7600 3700
+NoConn ~ 7600 3800
+NoConn ~ 7600 3900
+NoConn ~ 7600 4000
+NoConn ~ 7600 4100
+NoConn ~ 7600 4200
+NoConn ~ 7600 4300
+NoConn ~ 7600 4400
+NoConn ~ 7600 4500
+NoConn ~ 7600 4600
+$Comp
+L C C?
+U 1 1 5AE129A0
+P 6150 3150
+F 0 "C?" H 6175 3250 50  0000 L CNN
+F 1 "8.2pF" H 6175 3050 50  0000 L CNN
+F 2 "" H 6188 3000 50  0001 C CNN
+F 3 "" H 6150 3150 50  0001 C CNN
+	1    6150 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5AE129A7
+P 6550 3150
+F 0 "C?" H 6575 3250 50  0000 L CNN
+F 1 "1uF" H 6575 3050 50  0000 L CNN
+F 2 "" H 6588 3000 50  0001 C CNN
+F 3 "" H 6550 3150 50  0001 C CNN
+	1    6550 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5AE129AE
+P 6550 3300
+F 0 "#PWR?" H 6550 3050 50  0001 C CNN
+F 1 "GND" H 6550 3150 50  0000 C CNN
+F 2 "" H 6550 3300 50  0001 C CNN
+F 3 "" H 6550 3300 50  0001 C CNN
+	1    6550 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5AE129B4
+P 6150 3300
+F 0 "#PWR?" H 6150 3050 50  0001 C CNN
+F 1 "GND" H 6150 3150 50  0000 C CNN
+F 2 "" H 6150 3300 50  0001 C CNN
+F 3 "" H 6150 3300 50  0001 C CNN
+	1    6150 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3V3 #PWR?
+U 1 1 5AE129C1
+P 5900 2800
+F 0 "#PWR?" H 5900 2650 50  0001 C CNN
+F 1 "+3V3" H 5900 2940 50  0000 C CNN
+F 2 "" H 5900 2800 50  0001 C CNN
+F 3 "" H 5900 2800 50  0001 C CNN
+	1    5900 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Q_NMOS_GSD Q?
+U 1 1 5AE53A9D
+P 4900 4600
+F 0 "Q?" V 4750 4750 50  0000 L CNN
+F 1 "Q_NMOS_GSD" V 4850 4750 50  0000 L CNN
+F 2 "" H 5100 4700 50  0001 C CNN
+F 3 "" H 4900 4600 50  0001 C CNN
+	1    4900 4600
+	0    -1   1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 5AE851BB
+P 5200 4450
+F 0 "R?" V 5280 4450 50  0000 C CNN
+F 1 "10K" V 5200 4450 50  0000 C CNN
+F 2 "" V 5130 4450 50  0001 C CNN
+F 3 "" H 5200 4450 50  0001 C CNN
+	1    5200 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 4750 6000 4600
+Wire Wire Line
+	6000 4600 6150 4600
+Wire Wire Line
+	5900 3700 6150 3700
+Wire Wire Line
+	5200 4700 5200 4600
+Wire Wire Line
+	4900 4400 4900 4250
+Wire Wire Line
+	4900 4250 5200 4250
+Wire Wire Line
+	5200 4150 5200 4300
+$Comp
+L +3V3 #PWR?
+U 1 1 5AE85281
+P 5200 4150
+F 0 "#PWR?" H 5200 4000 50  0001 C CNN
+F 1 "+3V3" H 5200 4290 50  0000 C CNN
+F 2 "" H 5200 4150 50  0001 C CNN
+F 3 "" H 5200 4150 50  0001 C CNN
+	1    5200 4150
+	1    0    0    -1  
+$EndComp
+Connection ~ 5200 4250
+Text GLabel 4500 4700 0    60   Input ~ 0
+RX_5V
+Wire Wire Line
+	4500 4700 4700 4700
+$Comp
+L R R?
+U 1 1 5AE8556B
+P 4950 3150
+F 0 "R?" V 5030 3150 50  0000 C CNN
+F 1 "10K" V 4950 3150 50  0000 C CNN
+F 2 "" V 4880 3150 50  0001 C CNN
+F 3 "" H 4950 3150 50  0001 C CNN
+	1    4950 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 5AE8562D
+P 4950 3550
+F 0 "R?" V 5030 3550 50  0000 C CNN
+F 1 "20K" V 4950 3550 50  0000 C CNN
+F 2 "" V 4880 3550 50  0001 C CNN
+F 3 "" H 4950 3550 50  0001 C CNN
+	1    4950 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5900 2800 5900 3700
+Wire Wire Line
+	5900 3000 6550 3000
+Connection ~ 6150 3000
+Connection ~ 5900 3000
+Wire Wire Line
+	5100 4700 5550 4700
+Wire Wire Line
+	5550 4700 5550 3900
+Wire Wire Line
+	5550 3900 6150 3900
+Connection ~ 5200 4700
+Text GLabel 4500 3000 0    60   Input ~ 0
+TX_5V
+Wire Wire Line
+	4500 3000 4950 3000
+$Comp
+L GND #PWR?
+U 1 1 5AE867BC
+P 4950 3700
+F 0 "#PWR?" H 4950 3450 50  0001 C CNN
+F 1 "GND" H 4950 3550 50  0000 C CNN
+F 2 "" H 4950 3700 50  0001 C CNN
+F 3 "" H 4950 3700 50  0001 C CNN
+	1    4950 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4950 3300 4950 3400
+Wire Wire Line
+	5550 3800 6150 3800
+Wire Wire Line
+	5550 3350 5550 3800
+Wire Wire Line
+	5550 3350 4950 3350
+Connection ~ 4950 3350
+$EndSCHEMATC

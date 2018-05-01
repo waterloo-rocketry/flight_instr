@@ -1,5 +1,10 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP +11.1V
+D power-flag symbol
+K Power Flag Symbol
+$ENDCMP
+#
 $CMP +3.0V
 D power-flag symbol +3.0V
 K Power Flag Symbol
@@ -8,6 +13,10 @@ $ENDCMP
 $CMP +3.3V
 D power-flag symbol
 K Power Flag Symbol
+$ENDCMP
+#
+$CMP 74HC4050
+D Hex non-inverting HIGH-to-LOW level shifter
 $ENDCMP
 #
 $CMP Arduino_Nano_v2.x
@@ -56,6 +65,22 @@ $CMP OPA376xxDBV
 D Single Low-Noise, Low Quiescent Current, Precision Operational Amplifier e-trim Series, SOT-23-5
 K single opamp
 F http://www.ti.com/lit/ds/symlink/opa376.pdf
+$ENDCMP
+#
+$CMP SD_Card
+D SD Card Reader
+K connector SD
+F http://portal.fciconnect.com/Comergent//fci/drawing/10067847.pdf
+$ENDCMP
+#
+$CMP SD_Card_modified
+D SD Card Reader
+K connector SD
+F http://portal.fciconnect.com/Comergent//fci/drawing/10067847.pdf
+$ENDCMP
+#
+$CMP SN74LVC2T45
+D Dual-Bit Dual-Supply Bus Transceiver
 $ENDCMP
 #
 $CMP TS391ILT
