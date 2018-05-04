@@ -1,0 +1,70 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgenericrgb\c100000\c0\c0;\csgenericrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww17940\viewh13660\viewkind1
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 \ul \ulc0 Pre-Review Analysis\
+
+\b0 \ulnone \
+
+\b Arduino:\
+
+\b0 - Arduino nano v3 clone. 
+\b \
+\
+Valve Section:\
+
+\b0 - Flyback diodes on H bridge? Currently using the body diodes of the MOSFET. Will add external flyback diodes if needed.\
+- Valve input is fused at 25A.\
+- PMOS high side switch: AOD417\
+	- Max Id: -25A\
+	- Max  Vgs: +/-20V\
+	- Vgs(th) between -1V and -3V\
+	- Checked pinout: GDS\
+- NMOS low side switch: AOD476\
+	- Max Id: 25A\
+	- Max Vgs: +/-16V\
+	- Vgs(th) between 0.6V and 2V\
+	- Checked pinout: GDS\
+Both have TO252 packages. \
+All this should be fine to handle the maximum current going through that motor.\
+\cf2 TODO: measure the inductive kick of that thing.\
+\cf3 - Resistor values for PMOS base pull-ups: TODO\
+- Valve should open by default (i.e. if inputs are floating due to power loss or reset of the microcontroller). Done by pulling INPUT_B up and pulling INPUT_A down.\cf2 \
+\
+
+\b \cf3 Xbee SC1:\
+
+\b0 - Decoupling capacitors: taken from data sheet. \
+- Input power supply should have a switching frequency greater than 500kHz, ripple less than 100mV (from datasheet).\
+- Current draw (idle): 50mA.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf3 \
+
+\b SD Card:\
+
+\b0 - Current consumption: idle, read, write\
+- Predicted average current consumption:\
+- Decoupling capacitor value (for power supply stability) from Altium blog general guidelines. Will refine.\
+\
+- R-78E3.3-0.5: 500mA, 570kHz typ, 50mV ripple, 1.5mA quiescent current. Powers both Xbee and SD card.\
+- Xbee and SD card interfacing: UART and SPI respectively. Logic level is shifted from 3V3 to 5V through SN74LVC2T45. Data direction is from B to A when DIR is LOW. Capacitor values are based on data sheet application notes.\
+\
+
+\b Analog Sensors:\
+
+\b0 - Thermistors: standard NTC, temperature range TODO\
+- Pressure sensor: TDH30 (solid state, 12-15V input, 0-5V output). Current consumption is approximately 7mA.\
+- SPU01 step-up regulator: input cap is internal. No value specified for output cap. Put in a conservative value that may be changed later. \
+\
+
+\b Digital sensors:\
+
+\b0 - I2C logic level shifter MOSFET: DMG2302UK\
+	- Vgs(th) between 0.3V and 1.0V\
+	- Max Vsd: 1.2V\
+	- 3.0 - 1.2 = 1.8 > max Vgs.\
+	- Pinout checked to be GSD.\
+}
