@@ -569,10 +569,6 @@ F 3 "" H 1600 1950 50  0001 C CNN
 	1    1600 1950
 	1    0    0    -1  
 $EndComp
-Text HLabel 1700 4000 0    60   Input ~ 0
-SCL_5V
-Text HLabel 1700 5300 0    60   Input ~ 0
-SDA_5V
 $Comp
 L TEST_1P J12
 U 1 1 5AEBBCFA
@@ -739,4 +735,8 @@ Wire Wire Line
 	7950 4450 8300 4450
 Wire Wire Line
 	8300 4450 8300 4700
+Text GLabel 1700 4000 0    60   Input ~ 0
+SCL_5V
+Text GLabel 1700 5300 0    60   Input ~ 0
+SDA_5V
 $EndSCHEMATC

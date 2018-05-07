@@ -121,8 +121,6 @@ S 7800 5000 1800 1300
 U 5AE12BED
 F0 "Sensors Digital" 60
 F1 "sensors_digital.sch" 60
-F2 "SCL_5V" I L 7800 5900 60 
-F3 "SDA_5V" I L 7800 5800 60 
 $EndSheet
 $Sheet
 S 1600 2100 1550 1300
@@ -346,7 +344,7 @@ Wire Wire Line
 Wire Wire Line
 	6400 4900 6400 5800
 Wire Wire Line
-	6400 5800 7800 5800
+	6400 5800 7250 5800
 Wire Wire Line
 	6650 5300 6400 5300
 Connection ~ 6400 5300
@@ -358,8 +356,7 @@ Connection ~ 6300 5400
 Wire Wire Line
 	7150 6050 7150 5900
 Wire Wire Line
-	7150 5700 7150 5800
-Connection ~ 7150 5800
+	7150 5800 7150 5700
 Wire Wire Line
 	6100 4250 6400 4250
 Wire Wire Line
@@ -369,8 +366,7 @@ Wire Wire Line
 Wire Wire Line
 	6300 5000 6300 5900
 Wire Wire Line
-	6300 5900 7800 5900
-Connection ~ 7150 5900
+	6300 5900 7250 5900
 Wire Wire Line
 	6100 4350 6500 4350
 Wire Wire Line
@@ -632,4 +628,10 @@ Text GLabel 2500 1350 0    60   Input ~ 0
 CTL_POWER
 Text GLabel 2500 1450 0    60   Input ~ 0
 CTL_POWER_GND
+Text GLabel 7250 5800 2    60   Input ~ 0
+SDA_5V
+Text GLabel 7250 5900 2    60   Input ~ 0
+SCL_5V
+Connection ~ 7150 5800
+Connection ~ 7150 5900
 $EndSCHEMATC
