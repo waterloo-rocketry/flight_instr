@@ -79,6 +79,10 @@ K connector SD
 F http://portal.fciconnect.com/Comergent//fci/drawing/10067847.pdf
 $ENDCMP
 #
+$CMP SN74LVC2T45
+D Dual-Bit Dual-Supply Bus Transceiver
+$ENDCMP
+#
 $CMP TS391ILT
 D 10 MHz, 850 µA Op Amps, SOT-23-5
 K single opamp
