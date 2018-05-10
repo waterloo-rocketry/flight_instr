@@ -135,9 +135,9 @@ F 3 "" H 3600 2300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3600 2300 3600 2500
+	3600 2500 3600 2300
 Wire Wire Line
-	3600 2500 3200 2500
+	3200 2500 3600 2500
 $Comp
 L R R29
 U 1 1 5AE82533
@@ -224,7 +224,7 @@ Text HLabel 4750 4500 2    60   Input ~ 0
 THERM_2
 Text HLabel 6550 4500 2    60   Input ~ 0
 THERM_4
-Text HLabel 8950 3200 0    60   Input ~ 0
+Text HLabel 8950 3100 0    60   Input ~ 0
 PRESSURE
 $Comp
 L C C18
@@ -253,45 +253,41 @@ Wire Wire Line
 Connection ~ 3500 2500
 Text GLabel 8950 2900 0    60   Input ~ 0
 CTL_POWER
-Text GLabel 8950 3000 0    60   Input ~ 0
+Text GLabel 8900 3700 0    60   Input ~ 0
 CTL_POWER_GND
 Wire Wire Line
 	8950 2900 9300 2900
 Wire Wire Line
-	8950 3000 9300 3000
+	8200 3000 9300 3000
 Text Notes 9600 3050 0    60   ~ 0
 (Control power input,\nmay not be connected)
 $Comp
 L +15V #PWR092
 U 1 1 5AF096B4
-P 7900 3100
-F 0 "#PWR092" H 7900 2950 50  0001 C CNN
-F 1 "+15V" H 7900 3240 50  0000 C CNN
-F 2 "" H 7900 3100 50  0001 C CNN
-F 3 "" H 7900 3100 50  0001 C CNN
-	1    7900 3100
+P 8200 2950
+F 0 "#PWR092" H 8200 2800 50  0001 C CNN
+F 1 "+15V" H 8200 3090 50  0000 C CNN
+F 2 "" H 8200 2950 50  0001 C CNN
+F 3 "" H 8200 2950 50  0001 C CNN
+	1    8200 2950
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7900 3100 9300 3100
-Wire Wire Line
-	8950 3200 9300 3200
-Text HLabel 8950 3400 0    60   Input ~ 0
+Text HLabel 8950 3600 0    60   Input ~ 0
 THERM_1
 Wire Wire Line
 	8950 3400 9300 3400
-Text HLabel 8950 3600 0    60   Input ~ 0
+Text HLabel 8950 3500 0    60   Input ~ 0
 THERM_2
 Wire Wire Line
 	8950 3600 9300 3600
-Text HLabel 8950 3800 0    60   Input ~ 0
+Text HLabel 8950 3400 0    60   Input ~ 0
 THERM_3
-Text HLabel 8950 4000 0    60   Input ~ 0
+Text HLabel 8950 3300 0    60   Input ~ 0
 THERM_4
 Wire Wire Line
-	8950 3800 9300 3800
+	9150 3800 9300 3800
 Wire Wire Line
-	8950 4000 9300 4000
+	9150 4000 9300 4000
 $Comp
 L GND #PWR093
 U 1 1 5AF0A90A
@@ -304,15 +300,9 @@ F 3 "" H 9150 4350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9150 4350 9150 3300
+	9150 3200 9150 4350
 Wire Wire Line
-	9150 3300 9300 3300
-Wire Wire Line
-	9300 3500 9150 3500
-Connection ~ 9150 3500
-Wire Wire Line
-	9300 3700 9150 3700
-Connection ~ 9150 3700
+	8950 3300 9300 3300
 Wire Wire Line
 	9300 3900 9150 3900
 Connection ~ 9150 3900
@@ -340,14 +330,24 @@ F 3 "" H 9500 3600 50  0001 C CNN
 	1    9500 3600
 	1    0    0    -1  
 $EndComp
-Text GLabel 8950 4300 0    60   Input ~ 0
-SCL_5V
-Text GLabel 8950 4200 0    60   Input ~ 0
-SDA_5V
-Wire Wire Line
-	8950 4200 9300 4200
-Wire Wire Line
-	8950 4300 9300 4300
 Text Notes 9400 4550 0    60   ~ 0
 15 pin DSUB
+Wire Wire Line
+	9300 4200 9150 4200
+Connection ~ 9150 4200
+Wire Wire Line
+	9300 4300 9150 4300
+Connection ~ 9150 4300
+Wire Wire Line
+	8200 2950 8200 3000
+Wire Wire Line
+	8950 3100 9300 3100
+Wire Wire Line
+	8950 3500 9300 3500
+Connection ~ 9150 3800
+Connection ~ 9150 4000
+Wire Wire Line
+	8900 3700 9300 3700
+Wire Wire Line
+	9300 3200 9150 3200
 $EndSCHEMATC

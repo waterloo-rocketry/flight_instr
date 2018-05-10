@@ -308,7 +308,7 @@ F 3 "" H 4150 7050 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Text Label 4300 3750 0    60   ~ 0
-MISO_3V3
+MOSI_3V3
 Text Label 4300 3850 0    60   ~ 0
 SCK_3V3
 Text Label 4350 5350 0    60   ~ 0

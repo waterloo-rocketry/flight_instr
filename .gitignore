@@ -1,3 +1,5 @@
 *.o
 notes/*
 receipts/*
+*.bak
+*.kicad_pcb-bak
