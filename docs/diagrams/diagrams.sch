@@ -1,0 +1,161 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:flight_instr
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MOTOR M1
+U 1 1 5AF85E1A
+P 5650 3350
+F 0 "M1" H 5650 3150 60  0000 C CNN
+F 1 "MOTOR" H 5650 3550 60  0000 C CNN
+F 2 "" H 5650 3350 60  0001 C CNN
+F 3 "" H 5650 3350 60  0001 C CNN
+	1    5650 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L LIM_SW SW1
+U 1 1 5AF86263
+P 4550 3350
+F 0 "SW1" H 4700 3050 60  0000 C CNN
+F 1 "LIM_SW" H 4550 3450 60  0000 C CNN
+F 2 "" H 4550 3350 60  0001 C CNN
+F 3 "" H 4550 3350 60  0001 C CNN
+	1    4550 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L LIM_SW SW2
+U 1 1 5AF862AB
+P 6750 3350
+F 0 "SW2" H 6600 3050 60  0000 C CNN
+F 1 "LIM_SW" H 6750 3450 60  0000 C CNN
+F 2 "" H 6750 3350 60  0001 C CNN
+F 3 "" H 6750 3350 60  0001 C CNN
+	1    6750 3350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L R R1
+U 1 1 5AF86367
+P 4000 3150
+F 0 "R1" V 4080 3150 50  0000 C CNN
+F 1 "10K" V 4000 3150 50  0000 C CNN
+F 2 "" V 3930 3150 50  0001 C CNN
+F 3 "" H 4000 3150 50  0001 C CNN
+	1    4000 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R2
+U 1 1 5AF863A7
+P 7300 3150
+F 0 "R2" V 7380 3150 50  0000 C CNN
+F 1 "10K" V 7300 3150 50  0000 C CNN
+F 2 "" V 7230 3150 50  0001 C CNN
+F 3 "" H 7300 3150 50  0001 C CNN
+	1    7300 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR1
+U 1 1 5AF863D9
+P 4000 3000
+F 0 "#PWR1" H 4000 2850 50  0001 C CNN
+F 1 "+5V" H 4000 3140 50  0000 C CNN
+F 2 "" H 4000 3000 50  0001 C CNN
+F 3 "" H 4000 3000 50  0001 C CNN
+	1    4000 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR2
+U 1 1 5AF863FC
+P 7300 3000
+F 0 "#PWR2" H 7300 2850 50  0001 C CNN
+F 1 "+5V" H 7300 3140 50  0000 C CNN
+F 2 "" H 7300 3000 50  0001 C CNN
+F 3 "" H 7300 3000 50  0001 C CNN
+	1    7300 3000
+	1    0    0    -1  
+$EndComp
+Text Label 4550 4000 3    60   ~ 0
+CLOSE-
+Text Label 5100 4000 3    60   ~ 0
+OPEN+
+Text Label 4000 4000 3    60   ~ 0
+LIM_CLOSE
+Text Label 6200 4000 3    60   ~ 0
+CLOSE+
+Text Label 6750 4000 3    60   ~ 0
+OPEN-
+Text Label 7300 4000 3    60   ~ 0
+LIM_OPEN
+Wire Wire Line
+	4000 3300 4000 4000
+Wire Wire Line
+	4000 3350 4100 3350
+Wire Wire Line
+	5000 3350 5200 3350
+Wire Wire Line
+	6100 3350 6300 3350
+Wire Wire Line
+	7200 3350 7300 3350
+Wire Wire Line
+	7300 3300 7300 4000
+Connection ~ 4000 3350
+Wire Wire Line
+	4550 4000 4550 3800
+Wire Wire Line
+	5100 4000 5100 3350
+Connection ~ 5100 3350
+Wire Wire Line
+	6200 4000 6200 3350
+Connection ~ 6200 3350
+Wire Wire Line
+	6750 4000 6750 3800
+Connection ~ 7300 3350
+Text Notes 7150 6900 0    100  ~ 0
+INJECTOR AND VENT VALVE WIRING
+$EndSCHEMATC
