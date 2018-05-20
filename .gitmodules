@@ -1,0 +1,3 @@
+[submodule "software/rlcs_upstream"]
+	path = software/rlcs_upstream
+	url = git@github.com:waterloo-rocketry/rlcs.git
