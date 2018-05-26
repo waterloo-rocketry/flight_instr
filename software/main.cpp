@@ -10,24 +10,39 @@
 #define IMU_ODR_G   0x07    // 833 Hz high performance  
 #define IMU_FS_G    0x03    // 2000 dps
 
+#define OPEN_POS 2
+#define CLOSE_POS 3
+#define CLOSE_NEG 4
+#define OPEN_NEG 5
+#define LIMIT_OPEN 6
+#define LIMIT_CLOSED 7
+
+#define PRESSURE_PIN 6
+#define SENSOR_SEND_INTERVAL 1000   // in milliseconds
+
 int main() {
 	init();
 
-    Wire.begin();
-    Serial.begin(9600);
-    Serial.println("start");
- 
-    float accel_vals[3]; // 0: x, 1: y, 2: z
-    float gyro_vals[3]; // 0: x, 1: y, 2: z
+    pinMode(LIMIT_OPEN, INPUT);
+    pinMode(LIMIT_CLOSED, INPUT);
+    sensor_data_t rlcs_sensors;
 
-    imu_init(IMU_ADDR, IMU_ODR_XL, IMU_FS_XL, IMU_ODR_G, IMU_FS_G);
+    nio_init(CLOSE_POS, CLOSE_NEG, OPEN_POS, OPEN_NEG);
 
-    while(1) {
-        //imu_accel_read(IMU_ADDR, accel_vals);
-        imu_gyro_read(IMU_ADDR, gyro_vals);
-        delay(100);
+    long last_logged_millis = millis();
+    while (1) {
+        if (millis() - last_logged_millis > SENSOR_SEND_INTERVAL) {
+            rlcs_sensors.pressure = 787;
+            //rlcs_sensors.pressure = analogRead(PRESSURE_PIN) * 600;
+            // active low
+            rlcs_sensors.valve_limitswitch_open = !digitalRead(LIMIT_OPEN);
+            rlcs_sensors.valve_limitswitch_closed = !digitalRead(LIMIT_CLOSED);
+            nio_send_sensor_data(&rlcs_sensors);
+            last_logged_millis = millis();
+        }
+        nio_refresh();
     }
-   
+
     /*
     while (1) {
       byte error, address;
