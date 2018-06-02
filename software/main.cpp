@@ -18,10 +18,12 @@
 #define LIMIT_CLOSED 7
 
 #define PRESSURE_PIN 6
-#define PRESSURE_VENT_SCALE (610.5 * 5 / 1024.0)
-#define PRESSURE_VENT_ADD (-2.2)
-#define PRESSURE_INJ_SCALE (604 * 5 / 1024.0)
-#define PRESSURE_INJ_ADD (-265)
+// P1
+#define PRESSURE_INJ_SCALE (610.5 * 5 / 1024.0)
+#define PRESSURE_INJ_ADD (-2.2)
+// P2
+#define PRESSURE_VENT_SCALE (604 * 5 / 1024.0)
+#define PRESSURE_VENT_ADD (-265)
 
 #define SENSOR_SEND_INTERVAL 1000   // in milliseconds
 
@@ -35,13 +37,15 @@ int main() {
     nio_init(CLOSE_POS, CLOSE_NEG, OPEN_POS, OPEN_NEG);
 
     long last_logged_millis = millis();
+    int pressure = 0;
     while (1) {
         if (millis() - last_logged_millis > SENSOR_SEND_INTERVAL) {
 #ifdef NODE_VENT
-            rlcs_sensors.pressure = analogRead(PRESSURE_PIN) * PRESSURE_VENT_SCALE + PRESSURE_VENT_ADD;
+            pressure = analogRead(PRESSURE_PIN) * PRESSURE_VENT_SCALE + PRESSURE_VENT_ADD;
 #else
-            rlcs_sensors.pressure = analogRead(PRESSURE_PIN) * PRESSURE_INJ_SCALE + PRESSURE_INJ_ADD;
+            pressure = analogRead(PRESSURE_PIN) * PRESSURE_INJ_SCALE + PRESSURE_INJ_ADD;
 #endif
+            rlcs_sensors.pressure = pressure >= 0 ? pressure : 0;
             // active low
             rlcs_sensors.valve_limitswitch_open = !digitalRead(LIMIT_OPEN);
             rlcs_sensors.valve_limitswitch_closed = !digitalRead(LIMIT_CLOSED);
