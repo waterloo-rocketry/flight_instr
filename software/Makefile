@@ -15,11 +15,11 @@ INCLUDE += -I$(HARDWARE)/arduino/avr/cores/arduino
 INCLUDE += -I$(HARDWARE)/arduino/avr/variants/eightanaloginputs
 INCLUDE += -I$(HARDWARE)/arduino/avr/libraries/Wire
 INCLUDE += -I$(HARDWARE)/arduino/avr/libraries/Wire/utility
-INCLUDE += -I rlcs_upstream/arduino_programs/
+INCLUDE += -I rlcs_upstream/src/
 INCLUDE += -I include/
 
 VPATH += .
-VPATH += -I rlcs_upstream/arduino_programs/
+VPATH += rlcs_upstream/src/
 VPATH += $(HARDWARE)/arduino/avr/cores/arduino/
 VPATH += $(HARDWARE)/arduino/cores/arduino/
 VPATH += $(HARDWARE)/arduino/avr/libraries/Wire

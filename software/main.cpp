@@ -18,6 +18,11 @@
 #define LIMIT_CLOSED 7
 
 #define PRESSURE_PIN 6
+#define PRESSURE_VENT_SCALE (610.5 * 5 / 1024.0)
+#define PRESSURE_VENT_ADD (-2.2)
+#define PRESSURE_INJ_SCALE (604 * 5 / 1024.0)
+#define PRESSURE_INJ_ADD (-265)
+
 #define SENSOR_SEND_INTERVAL 1000   // in milliseconds
 
 int main() {
@@ -32,8 +37,11 @@ int main() {
     long last_logged_millis = millis();
     while (1) {
         if (millis() - last_logged_millis > SENSOR_SEND_INTERVAL) {
-            rlcs_sensors.pressure = 787;
-            //rlcs_sensors.pressure = analogRead(PRESSURE_PIN) * 600;
+#ifdef NODE_VENT
+            rlcs_sensors.pressure = analogRead(PRESSURE_PIN) * PRESSURE_VENT_SCALE + PRESSURE_VENT_ADD;
+#else
+            rlcs_sensors.pressure = analogRead(PRESSURE_PIN) * PRESSURE_INJ_SCALE + PRESSURE_INJ_ADD;
+#endif
             // active low
             rlcs_sensors.valve_limitswitch_open = !digitalRead(LIMIT_OPEN);
             rlcs_sensors.valve_limitswitch_closed = !digitalRead(LIMIT_CLOSED);
@@ -44,6 +52,9 @@ int main() {
     }
 
     /*
+    Serial.begin(9600);
+    Wire.begin();
+
     while (1) {
       byte error, address;
       int nDevices;
