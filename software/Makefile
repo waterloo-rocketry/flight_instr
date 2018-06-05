@@ -16,10 +16,12 @@ INCLUDE += -I$(HARDWARE)/arduino/avr/variants/eightanaloginputs
 INCLUDE += -I$(HARDWARE)/arduino/avr/libraries/Wire
 INCLUDE += -I$(HARDWARE)/arduino/avr/libraries/Wire/utility
 INCLUDE += -I rlcs_upstream/src/
+INCLUDE += -I arduino-ms5xxx/src/
 INCLUDE += -I include/
 
 VPATH += .
 VPATH += rlcs_upstream/src/
+VPATH += arduino-ms5xxx/src/
 VPATH += $(HARDWARE)/arduino/avr/cores/arduino/
 VPATH += $(HARDWARE)/arduino/cores/arduino/
 VPATH += $(HARDWARE)/arduino/avr/libraries/Wire
@@ -38,7 +40,7 @@ main.hex: main.elf
 	avr-objcopy -O ihex $< $@
 
 #our source files
-OBJECTS = $(addprefix $(OBJDIR)/, main.o nodeio.ioio.o IMU.o)
+OBJECTS = $(addprefix $(OBJDIR)/, main.o nodeio.ioio.o IMU.o MS5xxx.o)
 main.elf: $(OBJECTS) lib
 	$(CC) $(ELFFLAGS) -o $@ $(OBJECTS) libarduino.a -lm
 

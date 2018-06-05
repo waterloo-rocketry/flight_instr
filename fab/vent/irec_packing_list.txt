@@ -13,7 +13,7 @@ USB Mini cable                              2
 Spare arduino nano                          2
 
 M3 Screw                                    8 min
-Nylon screw (4-40 I think)                  4       // assuming there are already nylon screws in assembly
+Nylon screw (M3)                            4       // assuming there are already nylon screws in assembly
 4-40 Screw                                  4 min
 
 Ring conn                                   all
