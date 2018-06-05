@@ -1,0 +1,41 @@
+Item                                        Quantity
+-----------------------------------------------------------------------------
+GG Vent                                     1
+GG Vent Spare                               1
+GG Injector                                 1
+GG Injector Spare                           1
+Pressure Sensors (TDH30)                    2
+Sensor cables                               2       // thermistors attached
+Lipo 2200mAh                                4
+Microsd card                                2
+USB Mini cable                              2
+
+M3 Screw                                    8 min
+4-40 Screw                                  4 min
+
+Ring conn                                   all
+Quick conn                                  all
+Limit switches                              all
+Fuses 30A                                   3
+Spare cable (16 AWG grey)                   5 ft
+
+-----------------------------------------------------------------------------
+Tool                                        Quantity
+-----------------------------------------------------------------------------
+Screwdriver (Phillips head)
+Allen key (4-40)
+Allen key (M3)
+Tweezers
+
+Crimpers (Dupont)
+Crimpers/Strippers
+Heat gun
+Heat shrink
+
+Soldering iron
+Solder
+Flux
+Solder braid
+
+Multimeter
+Magnifying glass

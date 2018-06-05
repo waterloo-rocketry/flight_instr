@@ -3,6 +3,7 @@
 
 #include "nodeio.ioio.h"
 #include "IMU.h"
+#include "MS5xxx.h"
 
 #define IMU_ADDR    0x6A
 #define IMU_ODR_XL  0x07    // 833 Hz high performance
@@ -29,31 +30,6 @@
 
 int main() {
 	init();
-
-    pinMode(LIMIT_OPEN, INPUT);
-    pinMode(LIMIT_CLOSED, INPUT);
-    sensor_data_t rlcs_sensors;
-
-    nio_init(CLOSE_POS, CLOSE_NEG, OPEN_POS, OPEN_NEG);
-
-    long last_logged_millis = millis();
-    int pressure = 0;
-    while (1) {
-        if (millis() - last_logged_millis > SENSOR_SEND_INTERVAL) {
-#ifdef NODE_VENT
-            pressure = analogRead(PRESSURE_PIN) * PRESSURE_VENT_SCALE + PRESSURE_VENT_ADD;
-#else
-            pressure = analogRead(PRESSURE_PIN) * PRESSURE_INJ_SCALE + PRESSURE_INJ_ADD;
-#endif
-            rlcs_sensors.pressure = pressure >= 0 ? pressure : 0;
-            // active low
-            rlcs_sensors.valve_limitswitch_open = !digitalRead(LIMIT_OPEN);
-            rlcs_sensors.valve_limitswitch_closed = !digitalRead(LIMIT_CLOSED);
-            nio_send_sensor_data(&rlcs_sensors);
-            last_logged_millis = millis();
-        }
-        nio_refresh();
-    }
 
     /*
     Serial.begin(9600);

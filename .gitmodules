@@ -1,3 +1,6 @@
 [submodule "software/rlcs_upstream"]
 	path = software/rlcs_upstream
 	url = git@github.com:waterloo-rocketry/rlcs.git
+[submodule "software/arduino-ms5xxx"]
+	path = software/arduino-ms5xxx
+	url = https://github.com/Schm1tz1/arduino-ms5xxx.git
