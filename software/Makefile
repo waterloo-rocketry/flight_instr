@@ -4,7 +4,7 @@ CC = avr-gcc
 CXX = avr-g++
 HARDWARE = /Applications/Arduino.app/Contents/Java/hardware
 OBJDIR = obj
-DEFINES = -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DNODE_VENT
+DEFINES = -DF_CPU=16000000L -DARDUINO_ARCH_AVR
 
 MICRO = -mmcu=atmega328p
 CFLAGS = -std=gnu11 $(MICRO) $(DEFINES)
@@ -55,10 +55,10 @@ lib: $(LIB_OBJ)
 
 
 $(OBJDIR) obj/%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) $(NODE) $(INCLUDE) -c $< -o $@
 
 $(OBJDIR) obj/%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(NODE) $(INCLUDE) -c $< -o $@
 
 clean:
 	-rm $(OBJECTS)
