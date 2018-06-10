@@ -40,7 +40,7 @@ main.hex: main.elf
 	avr-objcopy -O ihex $< $@
 
 #our source files
-OBJECTS = $(addprefix $(OBJDIR)/, main.o nodeio.ioio.o IMU.o MS5xxx.o)
+OBJECTS = $(addprefix $(OBJDIR)/, main.o nodeio.ioio.o IMU.o gyro.o MS5xxx.o)
 main.elf: $(OBJECTS) lib
 	$(CC) $(ELFFLAGS) -o $@ $(OBJECTS) libarduino.a -lm
 
