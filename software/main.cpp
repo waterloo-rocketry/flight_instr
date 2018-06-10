@@ -3,6 +3,7 @@
 
 #include "nodeio.ioio.h"
 #include "IMU.h"
+#include "gyro.h"
 #include "MS5xxx.h"
 
 #define IMU_ADDR    0x6A
@@ -10,6 +11,8 @@
 #define IMU_FS_XL   0x01    // +/- 16g
 #define IMU_ODR_G   0x07    // 833 Hz high performance  
 #define IMU_FS_G    0x03    // 2000 dps
+
+#define GYRO_ADDR 0x69
 
 #define OPEN_POS 2
 #define CLOSE_POS 3
@@ -31,50 +34,21 @@
 int main() {
 	init();
 
-    /*
+    gyro_readout_t gyro_data;
+
     Serial.begin(9600);
     Wire.begin();
 
-    while (1) {
-      byte error, address;
-      int nDevices;
-     
-      Serial.println("Scanning...");
-     
-      nDevices = 0;
-      for(address = 1; address < 127; address++ )
-      {
-        // The i2c_scanner uses the return value of
-        // the Write.endTransmisstion to see if
-        // a device did acknowledge to the address.
-        Wire.beginTransmission(address);
-        error = Wire.endTransmission();
-     
-        if (error == 0)
-        {
-          Serial.print("I2C device found at address 0x");
-          if (address<16)
-            Serial.print("0");
-          Serial.print(address,HEX);
-          Serial.println("  !");
-     
-          nDevices++;
-        }
-        else if (error==4)
-        {
-          Serial.print("Unknown error at address 0x");
-          if (address<16)
-            Serial.print("0");
-          Serial.println(address,HEX);
-        }    
-      }
-      if (nDevices == 0)
-        Serial.println("No I2C devices found\n");
-      else
-        Serial.println("done\n");
-     
-      delay(5000);           // wait 5 seconds for next scan
+    // set bandwidth, odr, range
+    gyro_init(GYRO_ADDR, 0x2, 0xc, 0x4);
+    // calibrate, but do not write to NVM until final data rate chosen
+    gyro_calibrate(GYRO_ADDR);
+
+    while (1)  {
+        gyro_read(GYRO_ADDR, &gyro_data);
+        delay(100);
     }
-    */
+
+    return 0;
 }
 
