@@ -35,8 +35,18 @@ imu_t imu = {
     .odr_g      = 0x07,     // 833 Hz high performance mode
     .fs_g       = 0x03,     // 2000 dps
 
+    // FIXME
     .scale_xl   = XL_FS_16,
     .scale_g    = G_FS_2000
+};
+
+gyro_t gyro =  {
+    .addr = 0x69,
+
+    .gyr_bwp    = 0x2,      // normal mode
+    .gyr_odr    = 0xc,      // 1.6 kHz
+    .gyr_range  = 0x1,      // 1000 dps
+    .scale      = 32.8      // associated to 1000 dps
 };
 
 int main() {
@@ -46,9 +56,10 @@ int main() {
     Serial.begin(9600);
 
     imu_init(&imu);
+    gyro_init(&gyro);
     
     while (1) {
-        imu_gyro_read(&imu);
+        gyro_read(&gyro);
         delay(100);
     }
 
