@@ -9,19 +9,22 @@
 #define GYRO_RANGE_REG 0x43
 #define GYRO_CMD_REG 0x7e
 
-// TODO: store conversion factors and whatnot
-// currently things are all over the place
-typedef struct gyro_readout {
+typedef struct gyro {
+    uint8_t addr;
+
+    // init params
+    uint8_t gyr_bwp;
+    uint8_t gyr_odr;
+    uint8_t gyr_range;
+    float scale;
+
     // in degrees / second
-    float x_rate;
-    float y_rate;
-    float z_rate;
-    float temp;
-} gyro_readout_t;
+    float data[4];
+} gyro_t;
 
-int gyro_test_chipID(uint8_t addr);
-uint8_t gyro_init(uint8_t addr, uint8_t gyr_bwp, uint8_t gyr_odr, uint8_t gyr_range);
+int gyro_test_chipID(gyro_t *gyro);
+uint8_t gyro_init(gyro_t *gyro);
 
-void gyro_calibrate(uint8_t addr);
-void gyro_read(uint8_t addr, gyro_readout_t *data);
+void gyro_calibrate(gyro_t *gyro);
+void gyro_read(gyro_t *gyro);
 
