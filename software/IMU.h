@@ -21,10 +21,39 @@
 #define OUTZ_L_XL       0x2c
 #define OUTZ_H_XL       0x2d
 
+#define XL_FS_2        (0.061 / 1000.0 * 9.81)
+#define XL_FS_4        (0.122 / 1000.0 * 9.81)
+#define XL_FS_8        (0.244 / 1000.0 * 9.81)
+const float XL_FS_16  = (0.488 / 1000.0 * 9.81);
+
+#define G_FS_125        (4.375 / 1000)
+#define G_FS_250        (8.75 / 1000)
+#define G_FS_500        (17.50 / 1000)
+#define G_FS_1000       (35.0 / 1000)
+const float G_FS_2000        = (70.0 / 1000);
+
+typedef struct imu {
+    uint8_t imu_addr;
+
+    // initiallization parameters
+    uint8_t odr_xl;     // accelerometer ODR
+    uint8_t fs_xl;      // accelerometer full scale range
+    uint8_t odr_g;      // gyroscope ODR
+    uint8_t fs_g;       // gyroscope full scale range
+
+    // data conversion parameters
+    float scale_xl;     // conversion factor: LSB -> m^2/s
+    float scale_g;      // conversion factor: LSB -> degrees/second
+
+    // data
+    uint16_t accel_data[3];
+    uint16_t gyro_data[3];
+} imu_t;
+
 // This driver uses the Wire arduino library to communicate over I2C. 
 // Wire must be initialized before calling any of these functions.
-void imu_init(char imu_addr, char odr_xl, char fs_xl, char odr_g, char fs_g);
-void imu_accel_read(char imu_addr, float *accel_out);
-void imu_gyro_read(char imu_addr, float *gyro_out);
-void imu_read(char imu_addr);
+void imu_init(imu_t *imu);
+void imu_accel_read(imu_t *imu);
+void imu_gyro_read(imu_t *imu);
+void imu_read(imu_t *imu);
 
