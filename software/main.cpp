@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "Wire.h"
-
+#include "SPI.h"
+#include "SD.h" 
 #include "nodeio.ioio.h"
 #include "IMU.h"
 #include "gyro.h"
@@ -33,21 +34,23 @@
 
 int main() {
 	init();
-
-    gyro_readout_t gyro_data;
-
+    
     Serial.begin(9600);
-    Wire.begin();
-
-    // set bandwidth, odr, range
-    gyro_init(GYRO_ADDR, 0x2, 0xc, 0x4);
-    // calibrate, but do not write to NVM until final data rate chosen
-    gyro_calibrate(GYRO_ADDR);
-
-    while (1)  {
-        gyro_read(GYRO_ADDR, &gyro_data);
-        delay(100);
+    
+    pinMode(10, OUTPUT);
+    while (!SD.begin(10)) {
+        Serial.println("waiting");
     }
+    Serial.println("done init");
+
+    File testFile = SD.open("test.txt", FILE_WRITE);
+    if (testFile) {
+        Serial.println("test.txt loaded");
+    }
+    testFile.println("Hello, world\n");
+    testFile.close();
+    Serial.println("done all");
+    Serial.flush();
 
     return 0;
 }
