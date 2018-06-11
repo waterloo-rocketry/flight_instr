@@ -7,12 +7,6 @@
 #include "gyro.h"
 #include "MS5xxx.h"
 
-#define IMU_ADDR    0x6A
-#define IMU_ODR_XL  0x07    // 833 Hz high performance
-#define IMU_FS_XL   0x01    // +/- 16g
-#define IMU_ODR_G   0x07    // 833 Hz high performance  
-#define IMU_FS_G    0x03    // 2000 dps
-
 #define GYRO_ADDR 0x69
 
 #define OPEN_POS 2
@@ -32,25 +26,40 @@
 
 #define SENSOR_SEND_INTERVAL 1000   // in milliseconds
 
+// see LSM6DS3HTR datasheet
+imu_t imu = {
+    .imu_addr   = 0x6A,
+
+    .odr_xl     = 0x07,     // 833 hz high performance mode
+    .fs_xl      = 0x01,     // +/- 16g
+    .odr_g      = 0x07,     // 833 Hz high performance mode
+    .fs_g       = 0x03,     // 2000 dps
+
+    .scale_xl   = XL_FS_16,
+    .scale_g    = G_FS_2000
+};
+
 int main() {
 	init();
     
+    Wire.begin();
     Serial.begin(9600);
-    
-    pinMode(10, OUTPUT);
-    while (!SD.begin(10)) {
-        Serial.println("waiting");
-    }
-    Serial.println("done init");
 
-    File testFile = SD.open("test.txt", FILE_WRITE);
-    if (testFile) {
-        Serial.println("test.txt loaded");
+    imu_init(&imu);
+    
+    while (1) {
+        imu_gyro_read(&imu);
+        delay(100);
     }
-    testFile.println("Hello, world\n");
-    testFile.close();
-    Serial.println("done all");
-    Serial.flush();
+
+    // initialized nodeio
+    // initiallize all sensors
+
+    // LOOP:
+    // refresh nio
+    // update all sensors
+    // write sensor data to buffer
+    // if buffer is full enough, write to SD
 
     return 0;
 }

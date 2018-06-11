@@ -4,9 +4,6 @@
 [submodule "software/arduino-ms5xxx"]
 	path = software/arduino-ms5xxx
 	url = https://github.com/Schm1tz1/arduino-ms5xxx.git
-[submodule "software/SdFat"]
-	path = software/SdFat
-	url = git@github.com:greiman/SdFat.git
 [submodule "software/SD"]
 	path = software/SD
 	url = git@github.com:adafruit/SD.git
