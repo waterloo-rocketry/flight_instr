@@ -7,6 +7,7 @@
 #include "IMU.h"
 #include "gyro.h"
 #include "MS5xxx.h"
+#include "sdlogger.h"
 
 #define OPEN_POS 2
 #define CLOSE_POS 3
@@ -14,6 +15,8 @@
 #define OPEN_NEG 5
 #define LIMIT_OPEN 6
 #define LIMIT_CLOSED 7
+
+#define SD_CS 10
 
 #define PRESSURE_PIN 6
 #define THERM1 0
@@ -64,6 +67,9 @@ int main() {
     Wire.begin();
     Serial.begin(9600);
 
+    pinMode(SD_CS, OUTPUT);
+    sd_init(SD_CS);
+
     nio_init(CLOSE_POS, CLOSE_NEG, OPEN_POS, OPEN_NEG);
     pinMode(LIMIT_OPEN, INPUT);
     pinMode(LIMIT_CLOSED, INPUT);
@@ -95,6 +101,8 @@ int main() {
             nio_send_sensor_data(&rlcs_data);
             last_millis = millis();
         }
+
+        // don't forget to log the timestamp...
 
         delay(100);
     }
