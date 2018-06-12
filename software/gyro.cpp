@@ -82,11 +82,11 @@ void gyro_read(gyro_t *gyro) {
     }
 
     // data is organized LSB first in 2's complement format
-    // FIXME: get rid of hardcoded conversion
     gyro->data[0] = (int)((uint16_t)raw_readout[1] << 8 | raw_readout[0]) / gyro->scale;  // x rate
     gyro->data[1] = (int)((uint16_t)raw_readout[3] << 8 | raw_readout[2]) / gyro->scale;  // y rate
     gyro->data[2] = (int)((uint16_t)raw_readout[5] << 8 | raw_readout[4]) / gyro->scale;  // z rate
 
+    /*
     Serial.print("gyro: ");
     Serial.print(gyro->data[0]);
     Serial.print(" ");
@@ -94,6 +94,7 @@ void gyro_read(gyro_t *gyro) {
     Serial.print(" ");
     Serial.println(gyro->data[2]);
     Serial.flush();
+    */
 
     // read temperature
     Wire.beginTransmission(gyro->addr);

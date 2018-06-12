@@ -45,11 +45,13 @@ void imu_accel_read(imu_t *imu) {
     imu->accel_data[2] = read_signed_dword(imu->imu_addr, OUTZ_L_XL) * 0.00478728;
 
     // debug
+    /*
     for (int i = 0; i < 3; i++)  {
         Serial.print(imu->accel_data[i]);
         Serial.print(" ");
     }
     Serial.println();
+    */
 }
 
 void imu_gyro_read(imu_t *imu) {
@@ -58,11 +60,12 @@ void imu_gyro_read(imu_t *imu) {
     imu->gyro_data[2] = read_signed_dword(imu->imu_addr, OUTZ_L_G);
 
     // debug
+    /*
     for (int i = 0; i < 3; i++)  {
         Serial.print(imu->gyro_data[i]);
         Serial.print(" ");
     }
     Serial.println();
-
+    */
 }
 

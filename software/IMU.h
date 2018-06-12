@@ -55,5 +55,4 @@ typedef struct imu {
 void imu_init(imu_t *imu);
 void imu_accel_read(imu_t *imu);
 void imu_gyro_read(imu_t *imu);
-void imu_read(imu_t *imu);
 
