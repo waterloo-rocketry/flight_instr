@@ -4,7 +4,7 @@
 
 #include "sdlogger.h"
 
-static File data_file;
+File data_file;
 
 void sd_init(int chipSelect) {
     // debug
@@ -12,7 +12,7 @@ void sd_init(int chipSelect) {
     if (!SD.begin(chipSelect)) {
         Serial.println("card init failed");
         Serial.flush();
-        return;
+        while (1) {}    // debug
     } else {
         Serial.println("card init success");
     }
@@ -35,4 +35,10 @@ void sd_init(int chipSelect) {
     char file_name[13];
     sprintf(file_name, "%08i.txt", file_count);
     data_file = SD.open(file_name, FILE_WRITE);
+}
+
+void sd_write_headers() {
+    data_file.println("Timestamp, imu_acc_x, imu_acc_y, imu_acc_z, imu_gyr_x, imu_gyr_y\
+    imu_gyr_z, gyr_x, gyr_y, gyr_z, baro_press, baro_temp, pressure, temp1, temp2");
+    data_file.flush();
 }
