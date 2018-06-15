@@ -61,6 +61,9 @@ MS5xxx baro(&Wire);          // tied to external library
 float analogSensors[3];     // ox/cc pressure, temperature raw x2
 sensor_data_t rlcs_data;    // data to be sent back to rlcs
 
+// SD data file
+extern File data_file;
+
 int main() {
 	init();
     
@@ -69,6 +72,7 @@ int main() {
 
     pinMode(SD_CS, OUTPUT);
     sd_init(SD_CS);
+    sd_write_headers();
 
     nio_init(CLOSE_POS, CLOSE_NEG, OPEN_POS, OPEN_NEG);
     pinMode(LIMIT_OPEN, INPUT);
@@ -83,6 +87,7 @@ int main() {
     while (1) {
         nio_refresh();
 
+        long timestamp = micros();
         imu_accel_read(&imu);
         imu_gyro_read(&imu);
         gyro_read(&gyro);
@@ -93,22 +98,41 @@ int main() {
         analogSensors[1] = analogRead(THERM1);
         analogSensors[2] = analogRead(THERM2);
 
-        rlcs_data.pressure = analogSensors[0];
+        rlcs_data.pressure = analogSensors[0] > 0 ? analogSensors[0] : 0;
         rlcs_data.valve_limitswitch_open = !digitalRead(LIMIT_OPEN);
-        rlcs_data.valve_limitswitch_open = !digitalRead(LIMIT_CLOSED);
+        rlcs_data.valve_limitswitch_closed = !digitalRead(LIMIT_CLOSED);
         
         if (millis() - last_millis > SENSOR_SEND_INTERVAL) {
             nio_send_sensor_data(&rlcs_data);
             last_millis = millis();
         }
 
-        // don't forget to log the timestamp...
 
-        delay(100);
+        // snprintf is broken and life is hell
+        float sensor_cluster_fuck[11] = {
+            imu.accel_data[0], imu.accel_data[1], imu.accel_data[2],
+            gyro.data[0], gyro.data[1], gyro.data[2], baro_pressure, baro_temp,
+            analogSensors[0], analogSensors[1], analogSensors[2]
+        };
+
+        // 
+        data_file.print(timestamp);
+        // debug
+        Serial.print(timestamp);
+        for (int i = 0; i < sizeof(sensor_cluster_fuck) / sizeof(sensor_cluster_fuck[0]); i++) {
+            data_file.print(", ");
+            data_file.print(sensor_cluster_fuck[i]);
+
+            // debug
+            Serial.print(", ");
+            Serial.print(sensor_cluster_fuck[i]);
+        }
+        data_file.println();
+        data_file.flush();
+
+        // debug
+        Serial.println();
     }
-
-    // write sensor data to buffer
-    // if buffer is full enough, write to SD
 
     return 0;
 }
