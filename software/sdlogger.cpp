@@ -7,16 +7,9 @@
 File data_file;
 
 void sd_init(int chipSelect) {
-    // debug
-    Serial.println("initiallizing card");
     if (!SD.begin(chipSelect)) {
-        Serial.println("card init failed");
-        Serial.flush();
-        while (1) {}    // debug
-    } else {
-        Serial.println("card init success");
+        return;
     }
-    Serial.flush();
 
     File root_file = SD.open("/");
     int file_count = 0;

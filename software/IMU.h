@@ -1,5 +1,4 @@
 // Driver for the LSM6DS3HTR gyroscope/accelerometer IMU
-// Currently WIP
 
 // Device Register Addresses
 #define ORIENT_CFG_G    0x0b    // axis orientation config
@@ -46,13 +45,14 @@ typedef struct imu {
     float scale_g;      // conversion factor: LSB -> degrees/second
 
     // data
-    uint16_t accel_data[3];
-    uint16_t gyro_data[3];
+    float accel_data[3];
+    float gyro_data[3];
 } imu_t;
 
 // This driver uses the Wire arduino library to communicate over I2C. 
 // Wire must be initialized before calling any of these functions.
 void imu_init(imu_t *imu);
+void imu_whoami(imu_t *imu);
 void imu_accel_read(imu_t *imu);
 void imu_gyro_read(imu_t *imu);
 

@@ -51,9 +51,6 @@ uint8_t gyro_init(gyro_t *gyro) {
 
     Wire.requestFrom(gyro->addr, (uint8_t)1);
     uint8_t err_code = Wire.read();
-    Serial.print("error code: ");
-    Serial.println(err_code, HEX);
-    Serial.flush();
     return err_code;
 }
 
@@ -85,16 +82,6 @@ void gyro_read(gyro_t *gyro) {
     gyro->data[0] = (int)((uint16_t)raw_readout[1] << 8 | raw_readout[0]) / gyro->scale;  // x rate
     gyro->data[1] = (int)((uint16_t)raw_readout[3] << 8 | raw_readout[2]) / gyro->scale;  // y rate
     gyro->data[2] = (int)((uint16_t)raw_readout[5] << 8 | raw_readout[4]) / gyro->scale;  // z rate
-
-    /*
-    Serial.print("gyro: ");
-    Serial.print(gyro->data[0]);
-    Serial.print(" ");
-    Serial.print(gyro->data[1]);
-    Serial.print(" ");
-    Serial.println(gyro->data[2]);
-    Serial.flush();
-    */
 
     // read temperature
     Wire.beginTransmission(gyro->addr);

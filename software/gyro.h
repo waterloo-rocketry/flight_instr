@@ -1,5 +1,4 @@
 // Driver for the BMG250 gyroscope
-// WIP - will need major cleanup
 
 #define GYRO_CHIPID_REG 0x0
 #define GYRO_ERR_REG 0x02

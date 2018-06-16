@@ -36,14 +36,13 @@
 
 // see LSM6DS3HTR datasheet
 imu_t imu = {
-    .imu_addr   = 0x6A,
+    .imu_addr   = 0x6B,
 
     .odr_xl     = 0x07,     // 833 hz high performance mode
     .fs_xl      = 0x01,     // +/- 16g
     .odr_g      = 0x07,     // 833 Hz high performance mode
     .fs_g       = 0x03,     // 2000 dps
 
-    // FIXME
     .scale_xl   = XL_FS_16,
     .scale_g    = G_FS_2000
 };
@@ -79,6 +78,8 @@ int main() {
     pinMode(LIMIT_CLOSED, INPUT);
 
     imu_init(&imu);
+    imu_whoami(&imu);
+
     gyro_init(&gyro);
     baro.connect();
     baro.ReadProm();
@@ -115,23 +116,13 @@ int main() {
             analogSensors[0], analogSensors[1], analogSensors[2]
         };
 
-        // 
         data_file.print(timestamp);
-        // debug
-        Serial.print(timestamp);
         for (int i = 0; i < sizeof(sensor_cluster_fuck) / sizeof(sensor_cluster_fuck[0]); i++) {
             data_file.print(", ");
             data_file.print(sensor_cluster_fuck[i]);
-
-            // debug
-            Serial.print(", ");
-            Serial.print(sensor_cluster_fuck[i]);
         }
         data_file.println();
         data_file.flush();
-
-        // debug
-        Serial.println();
     }
 
     return 0;
