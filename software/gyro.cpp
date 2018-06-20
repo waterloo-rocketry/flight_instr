@@ -9,7 +9,6 @@ int gyro_test_chipID(uint8_t addr) {
     Wire.endTransmission();
 
     Wire.requestFrom(addr, (uint8_t)1);
-    while (!Wire.available());
     uint8_t chipID = Wire.read();
 
     return (chipID == 0xd5 ? 0 : -1);

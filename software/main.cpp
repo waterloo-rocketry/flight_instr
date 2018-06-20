@@ -19,8 +19,8 @@
 #define SD_CS 10
 
 #define PRESSURE_PIN 6
-#define THERM1 0
-#define THERM2 1
+#define THERM1 1
+#define THERM2 2
 
 #ifdef NODE_INJ
 // P1
@@ -39,7 +39,7 @@ imu_t imu = {
     .imu_addr   = 0x6B,
 
     .odr_xl     = 0x07,     // 833 hz high performance mode
-    .fs_xl      = 0x01,     // +/- 16g
+    .fs_xl      = 0x03,     // +/- 8g
     .odr_g      = 0x07,     // 833 Hz high performance mode
     .fs_g       = 0x03,     // 2000 dps
 
@@ -107,7 +107,6 @@ int main() {
             nio_send_sensor_data(&rlcs_data);
             last_millis = millis();
         }
-
 
         // snprintf is broken and life is hell
         float sensor_cluster_fuck[11] = {
