@@ -3,3 +3,8 @@ This is the flight/engine instrumentation system used in Waterloo Rocketry's 201
 
 This system is no longer in use. It has been replaced by RocketCAN, a collection of boards that implement the functionality of flight instrumentation in a modular manner. The new system is tracked in the `canhw`, `canlib`, and `cansw_*` repositories.
 
+## Injector board assembly
+![Alt text](img/gilmore2.jpg)
+
+## Vent board assembly
+![Alt text](img/gilmore.jpg)
